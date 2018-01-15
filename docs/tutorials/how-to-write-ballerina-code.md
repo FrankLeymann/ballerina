@@ -86,6 +86,8 @@ $ ballerina run -s /local/ballerina/src/sample.bal
 $ ballerina run -sourceroot /local/ballerina/src run -s sample.bal
 ```
 
+If your package contains only services, then you may omit the -s flag.
+
 Build a program in the default package (ie, build a package):
 ```bash
 $ cd /local/ballerina/src
@@ -151,7 +153,7 @@ Or you can override the default identifier:
 ```
 import ballerina.net.http as network;
 
-service<http> hello {
+service<network> hello {
 
     # The identifier has been renamed from `http` to `network`
     resource sayHello (network:Request req, network:Response res) {

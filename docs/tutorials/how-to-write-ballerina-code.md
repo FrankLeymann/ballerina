@@ -1,5 +1,5 @@
 # Introduction
-This document demonstrates the development of a BAllerina package and shows how to use the `ballerina` tool to fetch, build, and install Ballerina packages and commands with repositories that are local and remote. Ballerina Central is a globally hosted package management system to discover, download, and publish packages.
+This document demonstrates the development of a Ballerina package and shows how to use the `ballerina` tool to fetch, build, and install Ballerina packages and commands with repositories that are local and remote. Ballerina Central is a globally hosted package management system to discover, download, and publish packages.
 
 The `ballerina` tool requires you to organize your code in a specific way. This document explains the simplest way to get up and running with a Ballerina installation.
 
@@ -49,7 +49,7 @@ Suppose you have the following structure:
 
 and `sample.bal` contained both a `main()` entry point and a `service<>`:
 
-```
+```ballerina
 import ballerina.net.http;
 
 function main (string[] args) {
@@ -119,7 +119,7 @@ Packages:
 3. Have a namespace determined by its package name with dots `.` used as separators.
 
 Your source files indicate their *package name* by including at the top of the file:
-```
+```ballerina
 package some.name.with.a.namespace [version <identifer>];
 ```
 
@@ -128,15 +128,15 @@ You can version your packages with any non-space strings. There are no semantics
 ### Importing Packages
 Your Ballerina source files can import other packages:
 
-```
+```ballerina
 import another.package [ [version <identifier>] [as <identifier>] ];
 ```
 
-When importing a package, you can then use its functions, annotations and other objects in your code. You must reference these objects with their fully qualified name: `another.package.some_function()`. Or, you can reference the last name in the namespace as a default identifier.
+When importing a package, you can then use its functions, annotations and other objects in your code. You must reference these objects with partially qualified namem, which is the last identifier in your package name (or explicit identifier if you use the `as <identifier>` syntax) followed by a colon `:` such as `package:some_function()`. 
 
 Ballerina uses a colon `:` as the separator between a package namespace identifier and the objects contained within a package such as functions, structs, or annotations.
 
-```
+```ballerina
 import ballerina.net.http;
 
 service<http> hello {
@@ -150,7 +150,7 @@ service<http> hello {
 ```
 
 Or you can override the default identifier:
-```
+```ballerina
 import ballerina.net.http as network;
 
 service<network> hello {
@@ -165,7 +165,7 @@ service<network> hello {
 ### Importing Different Versions of the Same Package
 Your program can import multiple versions of the same package.
 
-```
+```ballerina
 package my.package;
 
 import org.company.wso2.identity version 3.0.1 as identity3;
@@ -177,10 +177,19 @@ function main(string[] args) {
 }
 ```
 
-## BALLERINA_PATH Environment
-## Import Path
-## Executable Program
-## Packages
+## Repositories
+A repository is a collection of compiled and / or source code packages of Ballerina code. A repository helps organize packages used by multiple programs by managing their versions and assets in a central location.
+
+There are four kinds of repositories:
+1. User Repository. Located locally on the developer's machine, this repository is located at the path defined by `BALLERINA_REPOSITORY`, or `~\.ballerina` if not specified. The developer must copy packages into their repository by installing them from their program directory or a remote location.
+
+2. System Repository. A special repository that is embedded within the Ballerina distribution. This repository contains `ballerina.*` core packages. These packages are dynamically linked into your programs when they are started.
+
+3. Extensions Repository. A special repository that is embedded within the Ballerina distribution. It contains packages from the community that are included as standard extensions. These packages are statically included into compiled Ballerina programs by the `ballerina build` command.
+
+4. Ballerina Central. Located at central.ballerina.io, this centrally managed repository is a community hub to discover, download, and publish Ballerina code and tool extensions as packages. 
+
+
 # Testing
 # Remote Packages
 ## GitHub

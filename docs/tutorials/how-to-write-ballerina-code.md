@@ -1,3 +1,60 @@
+# Introduction
+This document demonstrates the development of a BAllerina package and shows how to use the `ballerina` tool to fetch, build, and install Ballerina packages and commands with repositories that are local and remote. Ballerina Central is a globally hosted package management system to discover, download, and publish packages.
+
+The `ballerina` tool requires you to organize your code in a specific way. This document explains the simplest way to get up and running with a Ballerina installation.
+
+# Code Organization
+## Overview
+* Ballerina progammers keep all their Ballerina code in a single *program directory*.
+* A Ballerina *program* contains:
+  * *packages* written by you and saved in the *program directory*, and:
+  * imported dependent *packages* from a *repository*
+
+* A *package* is a directory that contains Ballerina source code files.
+* A *repository* is versioned collections of compiled or source code *packages*.
+
+## Program Directory
+The program directory is the absolute path of the *source root*, the base directory for packages. 
+
+```
+MyProjectProgramDirectoryCanBeAnywhere/
+  apackagefolder/
+    file1.bal
+    file2.bal
+  a.package.can.have.dots.to.create.a.namespace/
+    another_file.bal
+  another.package.with.a.namespace/
+    yet_another_file.bal
+  ...
+```
+
+You can optionally include Ballerina source files in the *empty package*, in the *source root* folder and not containing a package name. 
+
+```
+MyProjectProgramDirectory/
+  aballerinafile.bal
+```
+
+## Program
+A *program* is the transitive closure of one Ballerina package without including `ballerina.*` packages as they are contained within Ballerina's runtime engine. 
+
+The program's package must contain a `main()` function (a process entry point) or contain a `service<>` (a network-accessible API).
+
+* A *package* can depend upon other packages.
+* A *package* can be given a namespace using dots `.` as separators.
+* A *package* is versioned.
+
+## BALLERINA_PATH Environment
+## Import Path
+## Executable Program
+## Packages
+# Testing
+# Remote Packages
+## GitHub
+## Ballerina Central
+
+
+
 # Write your First Program
 
 Now that you’ve taken the [Quick Tour](../quick-tour.md), let's dig a little deeper and write your first Ballerina program. This tutorial will teach you how to run Ballerina in standalone and server mode, use the editor to build your program, understand the key concepts, and get familiar with the Ballerina language.

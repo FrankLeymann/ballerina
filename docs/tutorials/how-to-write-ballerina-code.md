@@ -189,6 +189,40 @@ There are four kinds of repositories:
 
 4. Ballerina Central. Located at central.ballerina.io, this centrally managed repository is a community hub to discover, download, and publish Ballerina code and tool extensions as packages. 
 
+A repository is structured as:
+```
+repository-path/
+  artifacts/
+    src/
+      packageName/
+        versionNumber/
+             ballerina-source-file1.bal
+             ballerina-source-file2.bal
+        ..
+    obj/
+      packageName/
+        versionNumber/
+          ballerinaPackageName.balo # compiled code and jars
+  metadata/                         # internal stuff that helps Ballerina execute faster 
+```
+
+When compiling or running a program from within your program directory, the build and runtime utilities will search for packages in the system repository, then the extension repository, your program directory, and then the user repository. Packages in Ballerina Central must be downloaded and installed into your user repository to be included within a program.
+
+### Install a Package Into Your User Repository
+If you are in in a program directory and have an already compiled package, you can install it into your user repository with the `install` command:
+```bash
+ballerina install <compiled-package-file.balo> [-r repository-path]
+```
+
+You can also install the source code into the repository as well, which is useful if you would like third parties to have tracing and debugging of your package within their IDE tools:
+```bash
+ballerina install <package-name> [-r repository-path]
+```
+
+You can remove a package from the user repository with the `uninstall` command:
+```bash
+ballerina uninstall <package-name> [-r repository-path]
+```
 
 # Testing
 # Remote Packages

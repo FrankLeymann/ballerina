@@ -226,8 +226,10 @@ ballerina uninstall <package-name> [-r repository-path]
 
 # Testing
 # Remote Packages
+
 ## GitHub
 ## Ballerina Central
+## Publishing Packages
 
 
 

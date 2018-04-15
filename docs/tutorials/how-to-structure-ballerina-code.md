@@ -299,7 +299,7 @@ ballerina push <org-name>/<package-name>:<version> --repository=home
 ### Uninstall a Package in Home Repository
 You can remove a package from the home repository:
 ```
-balelrina uninstall <org-name>/<package>:<version>
+ballerina uninstall <org-name>/<package>:<version>
 ```
 
 ### Organizations
@@ -326,8 +326,6 @@ Projects that perform dependency analysis will automatically pull packages into 
 
 ### Pushing Packages Into Remote Repositories
 "Pushing" a package uploads the associated package files and installs the package into a remote repository. If you do not specify a remote repository URL, then Ballerina Central is assumed. 
-
-Currently, you may only push 
 
 ```
 # Push all packages in a project

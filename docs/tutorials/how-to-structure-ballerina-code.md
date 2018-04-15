@@ -251,7 +251,7 @@ All packages built in a project are assigned the same version. If you need two p
 
 Version labels must follow [Semantic Versioning 2.0 rules](https://semver.org/).
 
-### Assign <org-name> to a Package
+### Assign an Organization Name to a Package
 A package is assigned an `<org-name>` when it is pushed into a repository. The `<org-name>` is defined in the `Ballerina.toml` and all packages in the same project are assigned the same organization name:
 
 ```toml
@@ -296,7 +296,7 @@ ballerina install <package>
 ballerina push <org-name>/<package-name>:<version> --repository=home
 ```
 
-### Uninstall a Package in Home Repository
+### Uninstall a Package in the Home Repository
 You can remove a package from the home repository:
 ```
 ballerina uninstall <org-name>/<package>:<version>

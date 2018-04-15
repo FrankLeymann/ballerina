@@ -12,9 +12,6 @@ The `ballerina` tool requires you to organize your code in a specific way. This 
 * A *package* is a directory that contains Ballerina source code files.
 * A *repository* is versioned collections of compiled or source code *packages*.
 * A *project* atomically manages a collection of *packages* and *programs*.
-  * A user-managed manifest file, `Ballerina.toml`
-  * A Ballerina-managed `.ballerina/` folder with implementation metadata and cache
-  * A project repository for storing dependencies
 
 ## Program
 A *program* is a runtime executable, ending with a `.balx` extension. A *program* is the transitive closure of one Ballerina package without including `ballerina/*` packages, since those are dynamically linked within Ballerina's runtime engine during execution. A *package* that is a *program* compiles into a a file with `.balx` extension, otherwise it is treated as a to-be-linked library that ends with a `.balo` extension.
